@@ -1,0 +1,97 @@
+install process
+--------------------------------
+1. npm init -y
+2. npm install express
+3. npm i mongoose -save
+4. npm install typescript --save-dev (development dependency )
+5. npm i cors
+6. npm i dotenv
+
+--------------------------------
+initialize typescript
+--------------------------------
+1. tsc -init
+2. tsconfig.json >
+    # "rootDir": "./src",
+    # "outDir": "./dist",  
+3. package.json >
+    # "scripts": {
+    "build": "tsc",
+    }
+4. npm run build
+
+--------------------------------
+Create server
+--------------------------------
+1. create src folder >
+    # app.ts
+    # server.ts
+
+--------------------------------
+Blog link
+--------------------------------
+https://dev.to/shafayat/-express-typescript-eslint-prettiersetup-5fhg
+
+--------------------------------
+Adding Eslint
+--------------------------------
+1. npm i -D eslint@9.14.0 @eslint/js @types/eslint__js typescript typescript-eslint
+2. npx eslint --init
+    # To check syntax and find problems
+    # JavaScript modules (import/export)
+    # None of these
+    #  Does your project use TypeScript?  (Yes)
+    #  Node (i)
+    #  Would you like to install them now? » (Yes)
+    # npm
+3. npm remove eslint
+4. npm i -D eslint@9.14.0 
+5. package.json >
+    # "scripts": {
+        "lint": "eslint src/**/*.ts",
+        "lint:fix": "eslint src/**/*.ts --fix"
+    },
+
+--------------------------------
+Adding Prettier
+--------------------------------
+1. npm i -D --exact prettier
+2 create file .prettierrc
+    (add text in file)
+    {
+        "semi": true,
+        "singleQuote": true
+    }
+3. create file .prettierignore
+    # dist (add text in file)
+    # node_modules (add text in file)
+
+4. package.json >
+    # "scripts": {
+        "format": "prettier . --write"
+    },
+
+--------------------------------
+Removed error
+--------------------------------
+# npm i --save-dev @types/express
+# npm i --save-dev @types/cors
+
+--------------------------------
+npm i ts-node-dev --save-dev
+--------------------------------
+1. npm i ts-node-dev --save-dev
+2. add on package.json 
+    "scripts": {
+        "start:dev":"ts-node-dev --respawn --transpile-only dist/server.js",
+        "start-prod": "node ./dist/server.js",
+    }
+2. add on .env
+    NODE_ENV= developmant
+
+--------------------------------
+add zod validator
+--------------------------------
+1. npm install zod 
+2. create zod schema
+3. import { z } from "zod" in student.controller.ts
